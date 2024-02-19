@@ -48,3 +48,24 @@ Run
 `python3 handcoded_client.py`
 
 Constructs a proto and sends it to the server
+
+## Using Postman
+
+Import the API into Postman using this (see steps below for step-by-step)
+
+https://martian-resonance-121183.postman.co/workspace/Fintekkers~77780f3f-bf5e-4f53-b27a-cff849e438c5/collection/63a770f605b4516caf7f0216?action=share&creator=25066831
+
+Create a new GRPC request:
+
+![alt text](images/one.png)
+
+Enter the server address into the server section. The example doesn't have server reflection enabled. So you have to import the proto definition (protos/compiled_helloworld.proto):
+
+![alt text](images/two.png)
+
+Postman will load the proto definition and know what the server looks like:
+
+
+![alt text](images/three.png)
+
+You can enter the data into Message section, select the SayHello method and then call it.
