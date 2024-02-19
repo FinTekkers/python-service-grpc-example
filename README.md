@@ -29,6 +29,18 @@ The greeter service implements all the methods and throws an error saying unimpl
 
 The other service endpoints could be called but will claim of being unimplemented.
 
+Also note the wiring code:
+
+`compiled_helloworld_pb2_grpc.add_GreeterServicer_to_server(Greeter(), server)`
+
+If you click through to the add_GreeterServicer_to_server definition. You can see it calls the compiled code which simply defines the stream handlers which explains to GRPC how to interpret protos it receives, then calls a generic function at the bottom to wire it up into the server:
+
+`
+    generic_handler = grpc.method_handlers_generic_handler(
+            'helloworld.Greeter', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+`
+
 ## Run Client
 
 Run 
